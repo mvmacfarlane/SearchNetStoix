@@ -9,7 +9,7 @@ use_wandb: True  # Whether to log to wandb.ai.
 
 # --- Other logger kwargs ---
 kwargs:
-  project: ~  # Project name in neptune.ai or wandb.ai.
+  project: "SearchNet"  # Project name in neptune.ai or wandb.ai.
   tags: [stoix] # Tags to add to the experiment.
   detailed_logging: True  # having mean/std/min/max can clutter neptune/wandb so we make it optional
   json_path: ~ # If set, json files will be logged to a set path so that multiple experiments can
