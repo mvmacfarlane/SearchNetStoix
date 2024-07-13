@@ -1,0 +1,22 @@
+# ---ResNet---
+actor_network:
+  pre_torso:
+    _target_: stoix.networks.sokoban.ResNetSoko
+    output_channels: [256,256]
+    kernel_sizes: [3,3]
+    strides: [1,1]
+    layer_sizes: [64, 64]
+    max_timesteps: 120
+  action_head:
+    _target_: stoix.networks.heads.CategoricalHead
+
+critic_network:
+  pre_torso:
+    _target_: stoix.networks.sokoban.ResNetSoko
+    output_channels: [256]
+    kernel_sizes: [3,3]
+    strides: [1,1]
+    layer_sizes: [64, 64]
+    max_timesteps: 120
+  critic_head:
+    _target_: stoix.networks.heads.ScalarCriticHead

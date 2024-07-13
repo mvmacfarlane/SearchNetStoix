@@ -1,0 +1,15 @@
+# ---MLP PPO Networks---
+joint_network:
+  shared_torso:
+    _target_: spo.networks.sokoban.ResNetSoko
+    output_channels: [256,256,512,512]
+    kernel_sizes: [3,3,3,3]
+    strides: [1,1,1,1]
+    policy_layer_sizes: [64, 64]
+    critic_layer_sizes: [128, 128]
+    max_timesteps: 120
+    only_value : False
+  action_head:
+    _target_: spo.networks.heads.CategoricalHead
+  critic_head:
+    _target_: spo.networks.heads.ScalarCriticHead
